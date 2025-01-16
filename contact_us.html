@@ -96,11 +96,49 @@
             font-size: 0.9em;
             border-top: 1px solid #eee;
         }
+        
+        .policy-info {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border-left: 4px solid #0056b3;
+        }
+        
+        .policy-info h3 {
+            color: #0056b3;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+        
+        .policy-info ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        
+        .policy-info li {
+            margin-bottom: 8px;
+            color: #555;
+        }
+        
+        .policy-info li:last-child {
+            margin-bottom: 0;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Contact Us</h1>
+        
+        <div class="policy-info">
+            <h3>Our Privacy Commitment</h3>
+            <ul>
+                <li>We do not collect any personal information</li>
+                <li>No data is sent to our servers</li>
+                <li>All features work completely offline on your device</li>
+            </ul>
+        </div>
+
         <form action="https://formspree.io/f/xgegpvzw" method="POST">
             <div class="form-group">
                 <label for="name">Name</label>
