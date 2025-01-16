@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            padding-top: 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        h1 {
+            text-align: left;
+            color: #333;
+            margin-top: 10px;
+            margin-bottom: 30px;
+            width: 100%;
+            clear: both;
+            padding-top: 0;
+        }
+        
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        
+        label {
+            font-weight: bold;
+            color: #555;
+        }
+        
+        input, textarea {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        
+        textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        button {
+            background-color: #0056b3;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        button:hover {
+            background-color: #003d82;
+        }
+        
+        .loading {
+            opacity: 0.7;
+            pointer-events: none;
+        }
+        
+        .success-message {
+            color: green;
+            text-align: center;
+            display: none;
+        }
+        
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 20px;
+            color: #555;
+            font-size: 0.9em;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+            margin-bottom: 20px;
+        }
+        
+        .policy-info {
+            clear: both;
+            margin-top: 20px;
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border-left: 4px solid #0056b3;
+        }
+        
+        .policy-info h3 {
+            color: #0056b3;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+        
+        .policy-info ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        
+        .policy-info li {
+            margin-bottom: 8px;
+            color: #555;
+        }
+        
+        .policy-info li:last-child {
+            margin-bottom: 0;
+        }
+        
+        .apps-container {
+            display: flex;
+            justify-content: flex-end;
+            gap: 0;
+            margin: 0;
+            transform-origin: right top;
+            transform: scale(0.6);
+            margin-right: -30px;
+            margin-top: -1px;
+            margin-bottom: -50px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .app-section {
+            text-align: center;
+            padding: 0;
+            border-radius: 8px;
+            min-width: 150px;
+            max-width: 180px;
+            margin: 0;
+            background: none;
+        }
+        
+        .app-icon {
+            margin: 0;
+            transform-origin: center center;
+            transform: scale(0.6);
+        }
+        
+        .app-icon a {
+            display: block;
+            width: 170px;
+            height: 170px;
+            margin: 0 auto;
+        }
+        
+        .app-icon img {
+            width: 100%;
+            height: 100%;
+            border-radius: 22px;
+        }
+        
+        .app-download {
+            transform: scale(0.7);
+            transform-origin: center top;
+            margin-top: -20px;
+        }
+        
+        .app-download img {
+            width: 120px;
+            height: auto;
+        }
+        
+        @media (max-width: 600px) {
+            .app-icon a {
+                width: 80px;
+                height: 80px;
+            }
+            
+            .app-section {
+                min-width: 100%;
+            }
+        }
+        
+        .app-section.coming-soon {
+            opacity: 0.7;
+        }
+        
+        .app-icon.coming-soon::after {
+            content: "Coming Soon";
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #0056b3;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+            white-space: nowrap;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="apps-container">
+            <div class="app-section">
+                <div class="app-icon">
+                    <a href="https://apps.apple.com/us/app/pmp-exam-practice-2025/id6738581950?itscg=30200&itsct=apps_box_artwork&mttnsubad=6738581950" style="position: relative; width: 170px; height: 170px; overflow: hidden; display: inline-block; vertical-align: middle; --app-icon-mask: url('data:image/svg+xml,%0A%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xml%3Aspace%3D%22preserve%22%20viewBox%3D%220%200%20230.5%20230.5%22%3E%0A%20%20%3Cpath%20fill-rule%3D%22evenodd%22%20stroke-linejoin%3D%22round%22%20stroke-miterlimit%3D%221.4%22%20clip-rule%3D%22evenodd%22%20d%3D%22M158.2%20230H64.1a320%20320%200%200%201-7-.1c-5%200-10-.5-15-1.3a50.8%2050.8%200%200%201-14.4-4.8%2048.2%2048.2%200%200%201-21-21%2050.9%2050.9%200%200%201-4.8-14.4%20100.7%20100.7%200%200%201-1.3-15v-7l-.1-8.2V64.1a320%20320%200%200%201%20.1-7c0-5%20.5-10%201.3-15a50.7%2050.7%200%200%201%204.8-14.4%2048.2%2048.2%200%200%201%2021-21%2051%2051%200%200%201%2014.4-4.8c5-.8%2010-1.2%2015-1.3a320%20320%200%200%201%207%200l8.2-.1h94.1a320%20320%200%200%201%207%20.1c5%200%2010%20.5%2015%201.3a52%2052%200%200%201%2014.4%204.8%2048.2%2048.2%200%200%201%2021%2021%2050.9%2050.9%200%200%201%204.8%2014.4c.8%205%201.2%2010%201.3%2015a320%20320%200%200%201%20.1%207v102.3l-.1%207c0%205-.5%2010-1.3%2015a50.7%2050.7%200%200%201-4.8%2014.4%2048.2%2048.2%200%200%201-21%2021%2050.8%2050.8%200%200%201-14.4%204.8c-5%20.8-10%201.2-15%201.3a320%20320%200%200%201-7%200l-8.2.1z%22%2F%3E%0A%3C%2Fsvg%3E%0A');">
+                        <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/17/66/1d/17661df8-e7d0-f006-e051-2cab7ac41a1b/AppIcon-0-0-1x_U007epad-0-1-85-220.png/540x540bb.jpg" alt="PMP Exam Practice 2025" style="width: 100%; height: 100%; object-fit: contain; mask-image: var(--app-icon-mask); -webkit-mask-image: var(--app-icon-mask);" />
+                    </a>
+                </div>
+                <div class="app-download">
+                    <a href="https://apps.apple.com/us/app/pmp-exam-practice-2025/id6738581950?itscg=30200&itsct=apps_box_badge&mttnsubad=6738581950">
+                        <img src="https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/black/en-us?releaseDate=1732492800" alt="Download on the App Store" />
+                    </a>
+                </div>
+            </div>
+
+            <div class="app-section">
+                <div class="app-icon">
+                    <a href="https://apps.apple.com/us/app/pgmp-exam-practice/id6738876606?itscg=30200&itsct=apps_box_artwork&mttnsubad=6738876606" style="position: relative; width: 170px; height: 170px; overflow: hidden; display: inline-block; vertical-align: middle; --app-icon-mask: url('data:image/svg+xml,%0A%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xml%3Aspace%3D%22preserve%22%20viewBox%3D%220%200%20230.5%20230.5%22%3E%0A%20%20%3Cpath%20fill-rule%3D%22evenodd%22%20stroke-linejoin%3D%22round%22%20stroke-miterlimit%3D%221.4%22%20clip-rule%3D%22evenodd%22%20d%3D%22M158.2%20230H64.1a320%20320%200%200%201-7-.1c-5%200-10-.5-15-1.3a50.8%2050.8%200%200%201-14.4-4.8%2048.2%2048.2%200%200%201-21-21%2050.9%2050.9%200%200%201-4.8-14.4%20100.7%20100.7%200%200%201-1.3-15v-7l-.1-8.2V64.1a320%20320%200%200%201%20.1-7c0-5%20.5-10%201.3-15a50.7%2050.7%200%200%201%204.8-14.4%2048.2%2048.2%200%200%201%2021-21%2051%2051%200%200%201%2014.4-4.8c5-.8%2010-1.2%2015-1.3a320%20320%200%200%201%207%200l8.2-.1h94.1a320%20320%200%200%201%207%20.1c5%200%2010%20.5%2015%201.3a52%2052%200%200%201%2014.4%204.8%2048.2%2048.2%200%200%201%2021%2021%2050.9%2050.9%200%200%201%204.8%2014.4c.8%205%201.2%2010%201.3%2015a320%20320%200%200%201%20.1%207v102.3l-.1%207c0%205-.5%2010-1.3%2015a50.7%2050.7%200%200%201-4.8%2014.4%2048.2%2048.2%200%200%201-21%2021%2050.8%2050.8%200%200%201-14.4%204.8c-5%20.8-10%201.2-15%201.3a320%20320%200%200%201-7%200l-8.2.1z%22%2F%3E%0A%3C%2Fsvg%3E%0A');">
+                        <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/d9/55/a4/d955a46c-c16c-5b2a-f651-cf653d1215c2/AppIcon-0-0-1x_U007epad-0-1-85-220.png/540x540bb.jpg" alt="PgMP Exam Practice" style="width: 100%; height: 100%; object-fit: contain; mask-image: var(--app-icon-mask); -webkit-mask-image: var(--app-icon-mask);" />
+                    </a>
+                </div>
+                <div class="app-download">
+                    <a href="https://apps.apple.com/us/app/pgmp-exam-practice/id6738876606?itscg=30200&itsct=apps_box_badge&mttnsubad=6738876606">
+                        <img src="https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/black/en-us?releaseDate=1733097600" alt="Download on the App Store" />
+                    </a>
+                </div>
+            </div>
+
+            <div class="app-section">
+                <div class="app-icon">
+                    <a href="https://apps.apple.com/us/app/pmi-acp-exam-practice/id6738675556?itscg=30200&itsct=apps_box_artwork&mttnsubad=6738675556" style="position: relative; width: 170px; height: 170px; overflow: hidden; display: inline-block; vertical-align: middle; --app-icon-mask: url('data:image/svg+xml,%0A%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xml%3Aspace%3D%22preserve%22%20viewBox%3D%220%200%20230.5%20230.5%22%3E%0A%20%20%3Cpath%20fill-rule%3D%22evenodd%22%20stroke-linejoin%3D%22round%22%20stroke-miterlimit%3D%221.4%22%20clip-rule%3D%22evenodd%22%20d%3D%22M158.2%20230H64.1a320%20320%200%200%201-7-.1c-5%200-10-.5-15-1.3a50.8%2050.8%200%200%201-14.4-4.8%2048.2%2048.2%200%200%201-21-21%2050.9%2050.9%200%200%201-4.8-14.4%20100.7%20100.7%200%200%201-1.3-15v-7l-.1-8.2V64.1a320%20320%200%200%201%20.1-7c0-5%20.5-10%201.3-15a50.7%2050.7%200%200%201%204.8-14.4%2048.2%2048.2%200%200%201%2021-21%2051%2051%200%200%201%2014.4-4.8c5-.8%2010-1.2%2015-1.3a320%20320%200%200%201%207%200l8.2-.1h94.1a320%20320%200%200%201%207%20.1c5%200%2010%20.5%2015%201.3a52%2052%200%200%201%2014.4%204.8%2048.2%2048.2%200%200%201%2021%2021%2050.9%2050.9%200%200%201%204.8%2014.4c.8%205%201.2%2010%201.3%2015a320%20320%200%200%201%20.1%207v102.3l-.1%207c0%205-.5%2010-1.3%2015a50.7%2050.7%200%200%201-4.8%2014.4%2048.2%2048.2%200%200%201-21%2021%2050.8%2050.8%200%200%201-14.4%204.8c-5%20.8-10%201.2-15%201.3a320%20320%200%200%201-7%200l-8.2.1z%22%2F%3E%0A%3C%2Fsvg%3E%0A');">
+                        <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/7a/7b/cc/7a7bcc42-a8a3-9f24-ca3f-92e88474a2ff/AppIcon-0-0-1x_U007epad-0-1-85-220.png/540x540bb.jpg" alt="PMI-ACP Exam Practice" style="width: 100%; height: 100%; object-fit: contain; mask-image: var(--app-icon-mask); -webkit-mask-image: var(--app-icon-mask);" />
+                    </a>
+                </div>
+                <div class="app-download">
+                    <a href="https://apps.apple.com/us/app/pmi-acp-exam-practice/id6738675556?itscg=30200&itsct=apps_box_badge&mttnsubad=6738675556">
+                        <img src="https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/black/en-us?releaseDate=1733097600" alt="Download on the App Store" />
+                    </a>
+                </div>
+            </div>
+
+            <div class="app-section coming-soon">
+                <div class="app-icon coming-soon">
+                    <a href="#" style="position: relative; width: 170px; height: 170px; overflow: hidden; display: inline-block; vertical-align: middle; --app-icon-mask: url('data:image/svg+xml,%0A%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xml%3Aspace%3D%22preserve%22%20viewBox%3D%220%200%20230.5%20230.5%22%3E%0A%20%20%3Cpath%20fill-rule%3D%22evenodd%22%20stroke-linejoin%3D%22round%22%20stroke-miterlimit%3D%221.4%22%20clip-rule%3D%22evenodd%22%20d%3D%22M158.2%20230H64.1a320%20320%200%200%201-7-.1c-5%200-10-.5-15-1.3a50.8%2050.8%200%200%201-14.4-4.8%2048.2%2048.2%200%200%201-21-21%2050.9%2050.9%200%200%201-4.8-14.4%20100.7%20100.7%200%200%201-1.3-15v-7l-.1-8.2V64.1a320%20320%200%200%201%20.1-7c0-5%20.5-10%201.3-15a50.7%2050.7%200%200%201%204.8-14.4%2048.2%2048.2%200%200%201%2021-21%2051%2051%200%200%201%2014.4-4.8c5-.8%2010-1.2%2015-1.3a320%20320%200%200%201%207%200l8.2-.1h94.1a320%20320%200%200%201%207%20.1c5%200%2010%20.5%2015%201.3a52%2052%200%200%201%2014.4%204.8%2048.2%2048.2%200%200%201%2021%2021%2050.9%2050.9%200%200%201%204.8%2014.4c.8%205%201.2%2010%201.3%2015a320%20320%200%200%201%20.1%207v102.3l-.1%207c0%205-.5%2010-1.3%2015a50.7%2050.7%200%200%201-4.8%2014.4%2048.2%2048.2%200%200%201-21%2021%2050.8%2050.8%200%200%201-14.4%204.8c-5%20.8-10%201.2-15%201.3a320%20320%200%200%201-7%200l-8.2.1z%22%2F%3E%0A%3C%2Fsvg%3E%0A');">
+                    <img src="./assets/images/capm-icon.png" alt="CAPM Exam Practice Coming Soon" style="width: 100%; height: 100%; object-fit: contain; mask-image: var(--app-icon-mask); -webkit-mask-image: var(--app-icon-mask);" />
+                </a>
+                </div>
+                <div class="app-download">
+                    <img src="https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/black/en-us" alt="Download on the App Store" style="opacity: 0.5;" />
+                </div>
+            </div>
+        </div>
+        
+        <h1>Contact Us (Ringo App)</h1>
+        
+        <div class="policy-info">
+            <h3>Our Privacy Commitment</h3>
+            <ul>
+                <li>We do not collect any personal information</li>
+                <li>No data is sent to our servers</li>
+                <li>All features work completely offline on your device</li>
+            </ul>
+        </div>
+
+        <form action="https://formspree.io/f/xgegpvzw" method="POST">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" required></textarea>
+            </div>
+            
+            <button type="submit">Send Message</button>
+        </form>
+        
+        <p class="success-message">Thank you for your message. We'll get back to you soon!</p>
+        
+        <footer>
+            <p>&copy; 2025 Ringo App Team</p>
+        </footer>
+    </div>
+
+    <script>
+        const form = document.querySelector('form');
+        const successMessage = document.querySelector('.success-message');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            form.classList.add('loading');
+            
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: new FormData(form),
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+                
+                if (response.ok) {
+                    form.style.display = 'none';
+                    successMessage.style.display = 'block';
+                } else {
+                    throw new Error('Network response was not ok');
+                }
+            } catch (error) {
+                alert('There was a problem sending your message. Please try again.');
+            } finally {
+                form.classList.remove('loading');
+            }
+        });
+    </script>
+</body>
+</html>
+
