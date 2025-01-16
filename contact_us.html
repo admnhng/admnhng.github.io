@@ -274,10 +274,22 @@
             .app-section {
                 min-width: 100%;
             }
+
+            .apps-container {
+                transform: scale(0.8);
+                margin-right: 0;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
         }
         
         .app-section.coming-soon {
-            opacity: 0.7;
+            opacity: 0.9;
+        }
+        
+        .app-section.coming-soon .app-icon a {
+            border: 1px solid #e2e8f0;
+            border-radius: 35px;
         }
         
         .app-icon.coming-soon::after {
