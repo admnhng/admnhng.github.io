@@ -279,8 +279,10 @@
             .apps-container {
                 transform: scale(0.8);
                 margin-right: 0;
-                flex-wrap: wrap;
-                justify-content: center;
+                flex-wrap: nowrap;
+                justify-content: flex-start;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
                 gap: 10px;
             }
 
