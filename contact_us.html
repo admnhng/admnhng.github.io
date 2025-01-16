@@ -1,66 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-            background-color: #f5f5f5;
-        }
-        
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-        
-        h1 {
-            text-align: center;
-            color: #333;
-            margin-bottom: 30px;
-        }
-        
-        .form-container {
-            position: relative;
-            width: 100%;
-            height: 0;
-            padding-bottom: 100%; /* Tỷ lệ khung form */
-        }
-        
-        .form-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-        
-        @media (max-width: 600px) {
-            .container {
-                padding: 15px;
-            }
-            
-            .form-container {
-                padding-bottom: 150%; /* Tăng chiều cao cho mobile */
-            }
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1>Contact Us</h1>
-        <div class="form-container">
-            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSf1REgQ6OuZNyS77_SiQ05RbL7SuQVv4OaavCTNtpm0qfYwvg/viewform?embedded=true" width="640" height="600" frameborder="0" marginheight="0" marginwidth="0">Đang tải…</iframe>
-        </div>
-    </div>
-</body>
-</html>
-
+<!-- modify this form HTML and place wherever you want your form -->
+<form
+  action="https://formspree.io/f/mpwwnkzk"
+  method="POST"
+>
+  <label>
+    Your email:
+    <input type="email" name="email">
+  </label>
+  <label>
+    Your message:
+    <textarea name="message"></textarea>
+  </label>
+  <button type="submit">Send</button>
+</form>
