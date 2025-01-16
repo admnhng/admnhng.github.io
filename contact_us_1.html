@@ -272,7 +272,8 @@
             }
             
             .app-section {
-                min-width: 100%;
+                min-width: 80px;
+                max-width: 120px;
             }
 
             .apps-container {
@@ -280,11 +281,21 @@
                 margin-right: 0;
                 flex-wrap: wrap;
                 justify-content: center;
+                gap: 10px;
+            }
+
+            .app-download img {
+                width: 80px;
             }
         }
         
         .app-section.coming-soon {
-            opacity: 0.7;
+            opacity: 0.9;
+        }
+        
+        .app-section.coming-soon .app-icon a {
+            border: 1px solid #e2e8f0;
+            border-radius: 35px;
         }
         
         .app-icon.coming-soon::after {
