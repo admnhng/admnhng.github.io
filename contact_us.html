@@ -46,6 +46,17 @@
             margin-bottom: 5px;
         }
         
+        @media (max-width: 600px) {
+            .form-row {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .form-row .form-group {
+                width: 100%;
+            }
+        }
+        
         .form-group {
             display: flex;
             flex-direction: column;
@@ -158,6 +169,28 @@
         @media (max-width: 600px) {
             .container {
                 padding: 20px;
+            }
+
+            .apps-container {
+                transform: scale(0.8);
+                margin-right: -20px;
+                margin-left: -20px;
+                padding: 0 20px;
+                flex-wrap: nowrap;
+                justify-content: flex-start;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                gap: 10px;
+            }
+
+            .app-section:first-child {
+                margin-left: 0;
+                padding-left: 0;
+            }
+
+            .app-section:last-child {
+                margin-right: 0;
+                padding-right: 0;
             }
         }
         
@@ -272,14 +305,22 @@
             }
             
             .app-section {
-                min-width: 100%;
+                min-width: 80px;
+                max-width: 120px;
             }
 
             .apps-container {
                 transform: scale(0.8);
                 margin-right: 0;
-                flex-wrap: wrap;
-                justify-content: center;
+                flex-wrap: nowrap;
+                justify-content: flex-start;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                gap: 10px;
+            }
+
+            .app-download img {
+                width: 80px;
             }
         }
         
@@ -288,7 +329,7 @@
         }
         
         .app-section.coming-soon .app-icon a {
-            border: 1px solid #e2e8f0;
+            border: 1.5px solid #cbd5e0;
             border-radius: 35px;
         }
         
