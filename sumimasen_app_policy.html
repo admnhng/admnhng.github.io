@@ -67,16 +67,18 @@
 
     <section id="ja" lang="ja">
     <h1>プライバシーポリシー</h1>
-    <p class="last-updated">すみませんジャーニー（Sumimasen） · 最終更新日：2026年9月28日</p>
+    <p class="last-updated">すみませんジャーニー（Sumimasen） · 最終更新日：2026年9月30日</p>
     <p>「すみませんジャーニー」（以下「本アプリ」）は、氏名・メールアドレス・電話番号・位置情報など、個人を直接特定する情報を収集しません。アカウント登録も不要です。</p>
 
     <h2>1. 本アプリが扱う情報</h2>
     <ul>
-        <li><strong>匿名のプレイヤーID：</strong>端末で自動生成され、iCloud キーチェーンに保存されます。再インストール時にコレクションを復元するために使います。</li>
-        <li><strong>ニックネームとアバター：</strong>ランキングに表示するため、ご自身で設定した場合のみサーバーに保存します。</li>
-        <li><strong>ゲームの記録：</strong>コレクション、ガチャ履歴、図鑑の発見、スコア。</li>
+        <li><strong>匿名のプレイヤーID：</strong>端末で自動生成され、iCloud キーチェーンに保存されます。再インストール時にランキングの記録を引き継ぐために使います。</li>
+        <li><strong>ニックネームとアバター：</strong>ランキングに表示するため、サーバーに保存します。</li>
+        <li><strong>スコア：</strong>ランキングのため、その週の自己ベストを更新したプレイの記録（各ミニゲームの結果）をサーバーに送ります。</li>
+        <li><strong>コレクション・ガチャ・図鑑：</strong>端末内に保存され、お使いの iCloud（キー値ストレージ）にバックアップされます。当方のサーバーには送信しません。</li>
+        <li><strong>匿名のプレイ統計：</strong>ゲームの難しさを調整するため、プレイが終わるごとに、進んだミニゲームの数、失敗したミニゲームとその難易度、スコア、プレイ時間、ルート、アプリのバージョン、表示言語をまとめた統計を送信します。この統計にはプレイヤーIDや IP アドレスは含まれず、個人と結び付けられることはありません。約3か月後に自動的に削除されます。</li>
     </ul>
-    <p>これらは Cloudflare, Inc. のサーバー（Workers / D1）に保存され、ゲームの提供にのみ使用します。第三者に販売・提供することはありません。</p>
+    <p>これらは Cloudflare, Inc. のサーバー（Workers / D1 / Analytics Engine）に保存され、ゲームの提供と改善にのみ使用します。第三者に販売・提供することはありません。</p>
 
     <h2>2. 広告（Google AdMob）</h2>
     <p>本アプリは Google AdMob による広告を表示します。AdMob は広告の配信・測定のため、広告識別子（IDFA：許可された場合のみ）、IPアドレス、端末情報、広告の閲覧・操作状況などを収集することがあります。</p>
@@ -87,7 +89,7 @@
     </ul>
 
     <h2>3. データの削除</h2>
-    <p>アプリ内の「設定 → データを削除」から、サーバー上のすべての記録（ニックネーム、コレクション、履歴）と端末内のデータを削除できます。削除は取り消せません。</p>
+    <p>アプリ内の「設定 → データを削除」から、サーバー上の記録（ニックネーム、アバター、スコア）と、端末内および iCloud バックアップのデータを削除できます。削除は取り消せません。匿名のプレイ統計は個人と結び付いていないため個別に削除できませんが、約3か月で自動的に削除されます。</p>
 
     <h2>4. 不適切なニックネームの通報</h2>
     <p>ランキングの行をタップすると、ニックネームの通報やプレイヤーのブロックができます。複数の通報を受けたニックネームは自動的に削除されます。</p>
@@ -109,16 +111,18 @@
 
     <section id="en" lang="en">
     <h1>Privacy Policy</h1>
-    <p class="last-updated">Sumimasen Journey · Last Updated: September 28, 2026</p>
+    <p class="last-updated">Sumimasen Journey · Last Updated: September 30, 2026</p>
     <p><strong>Sumimasen Journey</strong> ("the App", "we", "us") does not collect information that directly identifies you, such as your name, email address, phone number or location. No sign-up is needed.</p>
 
     <h2>1. Data We Use</h2>
     <ul>
-        <li><strong>Anonymous player ID:</strong> generated on your device and kept in iCloud Keychain, used to restore your collection after reinstalling.</li>
-        <li><strong>Nickname and avatar:</strong> stored on our server only if you set them, to show you on the leaderboard.</li>
-        <li><strong>Game records:</strong> your collection, gacha history, discoveries and score.</li>
+        <li><strong>Anonymous player ID:</strong> generated on your device and kept in iCloud Keychain, used to keep your leaderboard record after reinstalling.</li>
+        <li><strong>Nickname and avatar:</strong> stored on our server to show you on the leaderboard.</li>
+        <li><strong>Scores:</strong> for the leaderboard, a run that beats your best of the week is sent to our server (the result of each minigame in it).</li>
+        <li><strong>Collection, gacha and discoveries:</strong> kept on your device and backed up to your own iCloud (key-value storage). They are not sent to our server.</li>
+        <li><strong>Anonymous gameplay statistics:</strong> to tune the game's difficulty, each finished run sends a summary: how many minigames were cleared, the minigame (and its difficulty) where the run ended, the score, the play time, the route, the app version and the display language. It contains no player ID or IP address and is never linked to you. It is deleted automatically after about 3 months.</li>
     </ul>
-    <p>This data is stored on servers run by Cloudflare, Inc. (Workers / D1) and is used only to run the game. We never sell or share it.</p>
+    <p>This data is stored on servers run by Cloudflare, Inc. (Workers / D1 / Analytics Engine) and is used only to run and improve the game. We never sell or share it.</p>
 
     <h2>2. Advertising (Google AdMob)</h2>
     <p>The App shows ads from Google AdMob. To serve and measure ads, AdMob may collect your advertising identifier (IDFA, only if you allow tracking), IP address, device information and ad interactions.</p>
@@ -129,7 +133,7 @@
     </ul>
 
     <h2>3. Deleting Your Data</h2>
-    <p>In the App, go to Settings → Delete my data to erase everything on our server (nickname, collection, history) and on your device. This cannot be undone.</p>
+    <p>In the App, go to Settings → Delete my data to erase your records on our server (nickname, avatar, scores), on your device and in your iCloud backup. This cannot be undone. Anonymous gameplay statistics are not linked to you, so they cannot be deleted individually; they are deleted automatically after about 3 months.</p>
 
     <h2>4. Reporting Nicknames</h2>
     <p>Tap a row on the leaderboard to report a nickname or block a player. Nicknames reported by several players are removed automatically.</p>
