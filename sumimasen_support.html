@@ -58,12 +58,35 @@
             .lang-nav { font-size: 14px; margin-bottom: 20px; }
         hr.lang { margin: 50px 0 30px; border: none; border-top: 2px solid #eee; }
         footer { text-align: center; color: #999; font-size: 13px; margin: 20px 0; }
+        /* Contact form */
+        .langs { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 16px; padding: 0; list-style: none; }
+        .langs button { font: inherit; font-size: 14px; min-height: 36px; padding: 4px 10px; border: 1px solid #ccc; border-radius: 6px; background: #fff; color: #333; cursor: pointer; }
+        .langs button[aria-pressed="true"] { background: #007AFF; border-color: #007AFF; color: #fff; }
+        .field { margin: 0 0 18px; }
+        .field label { display: block; font-weight: 600; color: #333; margin-bottom: 6px; }
+        .field .hint { display: block; font-size: 14px; color: #888; margin-top: 4px; }
+        .field input, .field textarea { box-sizing: border-box; width: 100%; font: inherit; font-size: 16px; padding: 10px 12px; border: 1px solid #ccc; border-radius: 8px; background: #fff; color: #111; }
+        .field textarea { min-height: 160px; resize: vertical; }
+        .field input:focus, .field textarea:focus, .langs button:focus-visible, .send:focus-visible { outline: 3px solid #99c8ff; outline-offset: 1px; }
+        .counter { font-size: 14px; color: #888; text-align: right; margin-top: 4px; }
+        .counter.over { color: #c0392b; }
+        .send { font: inherit; font-size: 17px; font-weight: 600; min-height: 48px; width: 100%; border: none; border-radius: 8px; background: #007AFF; color: #fff; cursor: pointer; }
+        .send:disabled { background: #9cc6f5; cursor: default; }
+        .ts { min-height: 70px; margin: 0 0 16px; }
+        .status { min-height: 1.6em; margin: 14px 0 0; font-weight: 600; }
+        .status.ok { color: #1e8449; }
+        .status.err { color: #c0392b; }
+        .note { font-size: 14px; color: #888; }
+        @media (max-width: 480px) {
+            body { padding: 12px; }
+            .container { padding: 20px 16px; }
+        }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <p class="lang-nav"><a href="#ja">日本語</a> · <a href="#en">English</a></p>
+    <p class="lang-nav"><a href="#ja">日本語</a> · <a href="#en">English</a> · <a href="#contact">お問い合わせ / Contact</a></p>
 
     <section id="ja" lang="ja">
     <h1>すみませんジャーニー サポート</h1>
@@ -74,7 +97,7 @@
     <p><strong>不適切なニックネームを見つけた</strong><br>ランキングで該当の行をタップし「通報」を選んでください。「ブロック」すると、あなたのランキングに表示されなくなります。</p>
     <p><strong>広告について</strong><br>全画面広告は数回の通勤に1回までです。チケットのための広告視聴は任意です。</p>
     <h2>お問い合わせ</h2>
-    <p><a href="mailto:ad.mnh.ng@gmail.com">ad.mnh.ng@gmail.com</a><br>お使いの端末・iOS のバージョン・アプリのバージョン（設定画面の下部）を添えてお送りください。</p>
+    <p><a href="?lang=ja#contact">お問い合わせフォーム</a>からお送りください。お使いの端末・iOS のバージョン・アプリのバージョン（設定画面の下部）を添えてください。</p>
     <p><a href="sumimasen_app_policy.html">プライバシーポリシー</a></p>
     </section>
 
@@ -89,12 +112,246 @@
     <p><strong>I found an inappropriate nickname</strong><br>Tap the row on the leaderboard and choose Report. Block hides that player from your leaderboard.</p>
     <p><strong>About ads</strong><br>Full-screen ads appear at most once every few commutes. Watching ads for tickets is always optional.</p>
     <h2>Contact</h2>
-    <p><a href="mailto:ad.mnh.ng@gmail.com">ad.mnh.ng@gmail.com</a><br>Please include your device, iOS version and the App version (bottom of the Settings screen).</p>
+    <p>Please use the <a href="?lang=en#contact">contact form</a>, and include your device, iOS version and the App version (bottom of the Settings screen).</p>
     <p><a href="sumimasen_app_policy.html#en">Privacy Policy</a></p>
+    </section>
+
+    <hr class="lang">
+
+    <section id="contact" lang="ja" aria-labelledby="c-title">
+    <h1 id="c-title" data-t="title">お問い合わせ</h1>
+    <ul class="langs" aria-label="Language">
+        <li><button type="button" data-lang="ja" lang="ja" aria-pressed="true">日本語</button></li>
+        <li><button type="button" data-lang="en" lang="en" aria-pressed="false">English</button></li>
+        <li><button type="button" data-lang="ko" lang="ko" aria-pressed="false">한국어</button></li>
+        <li><button type="button" data-lang="zh" lang="zh-Hans" aria-pressed="false">中文</button></li>
+        <li><button type="button" data-lang="vi" lang="vi" aria-pressed="false">Tiếng Việt</button></li>
+    </ul>
+    <p data-t="intro">ご意見・不具合のご報告はこちらからどうぞ。</p>
+    <noscript><p>JavaScript を有効にしてください。/ Please turn on JavaScript to use the form.</p></noscript>
+    <form id="contact-form" novalidate hidden>
+        <div class="field">
+            <label for="c-message" data-t="message">お問い合わせ内容</label>
+            <textarea id="c-message" name="message" required maxlength="2000" aria-describedby="c-message-hint c-counter"></textarea>
+            <span class="hint" id="c-message-hint" data-t="messageHint">端末・iOS・アプリのバージョン（設定画面の下部）も書いてください。</span>
+            <div class="counter" id="c-counter" aria-live="off">0 / 2000</div>
+        </div>
+        <div class="field">
+            <label for="c-name" data-t="name">お名前（任意）</label>
+            <input id="c-name" name="name" type="text" maxlength="60" autocomplete="nickname">
+        </div>
+        <div class="field">
+            <label for="c-reply" data-t="replyTo">返信先メール（任意）</label>
+            <input id="c-reply" name="replyTo" type="email" maxlength="254" autocomplete="email" inputmode="email" aria-describedby="c-reply-hint">
+            <span class="hint" id="c-reply-hint" data-t="replyHint">返信が必要なときだけ書いてください。</span>
+        </div>
+        <div class="ts" id="c-turnstile"></div>
+        <button class="send" id="c-send" type="submit" data-t="send">送信</button>
+        <p class="status" id="c-status" role="status" aria-live="polite"></p>
+    </form>
+    <p class="note"><span data-t="note">送信内容はメールで開発者に届き、サーバーには保存しません。スパム対策に Cloudflare Turnstile を使っています。</span> <a id="c-policy" href="sumimasen_app_policy.html" data-t="policy">プライバシーポリシー</a></p>
     </section>
 </div>
     <footer>
-        <p>&copy; 2026 Ringo App Team</p>
+        <p>&copy; 2026 Ringo Studio</p>
     </footer>
+<script>
+(function () {
+    // Turnstile site key of the widget made for admnhng.github.io (docs/DEPLOY.md §12 in the game repo).
+    var SITE_KEY = "0x4AAAAAAFLrVvQgjy6DRLzE";
+    var ENDPOINT = "https://sumimasen-journey-fich939wrm.pgmp.app/v1/contact";
+    var MIN = 10, MAX = 2000, NAME_MAX = 60;
+    var T = {
+        ja: {
+            title: "お問い合わせ", intro: "ご意見・不具合のご報告はこちらからどうぞ。",
+            message: "お問い合わせ内容", messageHint: "端末・iOS・アプリのバージョン（設定画面の下部）も書いてください。",
+            name: "お名前（任意）", replyTo: "返信先メール（任意）", replyHint: "返信が必要なときだけ書いてください。",
+            send: "送信", sending: "送信中…", ok: "送信しました。ありがとうございます！",
+            short: "10文字以上で書いてください。", long: "2000文字までです。", nameLong: "お名前は60文字までです。",
+            email: "メールアドレスを確認してください。", wait: "確認が終わるまでお待ちください。",
+            bot: "確認に失敗しました。もう一度お試しください。", busy: "送信が多すぎます。1分ほどおいてお試しください。",
+            fail: "送れませんでした。時間をおいてもう一度お試しください。",
+            note: "送信内容はメールで開発者に届き、サーバーには保存しません。スパム対策に Cloudflare Turnstile を使っています。",
+            policy: "プライバシーポリシー", policyHref: "sumimasen_app_policy.html", ts: "ja"
+        },
+        en: {
+            title: "Contact", intro: "Feedback or a bug? Write to us here.",
+            message: "Message", messageHint: "Please include your device, iOS version and the app version (bottom of the Settings screen).",
+            name: "Name (optional)", replyTo: "Email for a reply (optional)", replyHint: "Only if you want a reply.",
+            send: "Send", sending: "Sending…", ok: "Sent. Thank you!",
+            short: "Please write at least 10 characters.", long: "2000 characters at most.", nameLong: "The name can be 60 characters at most.",
+            email: "Please check the email address.", wait: "Please wait for the check to finish.",
+            bot: "The check failed. Please try again.", busy: "Too many messages. Please wait a minute and try again.",
+            fail: "Could not send. Please try again later.",
+            note: "Your message is emailed to the developer and is not stored on our server. Cloudflare Turnstile is used to stop spam.",
+            policy: "Privacy Policy", policyHref: "sumimasen_app_policy.html#en", ts: "en"
+        },
+        ko: {
+            title: "문의하기", intro: "의견이나 버그 제보는 여기로 보내 주세요.",
+            message: "문의 내용", messageHint: "기기, iOS 버전, 앱 버전(설정 화면 아래)도 적어 주세요.",
+            name: "이름 (선택)", replyTo: "답장 받을 이메일 (선택)", replyHint: "답장이 필요할 때만 적어 주세요.",
+            send: "보내기", sending: "보내는 중…", ok: "보냈습니다. 감사합니다!",
+            short: "10자 이상 적어 주세요.", long: "2000자까지 쓸 수 있습니다.", nameLong: "이름은 60자까지입니다.",
+            email: "이메일 주소를 확인해 주세요.", wait: "확인이 끝날 때까지 기다려 주세요.",
+            bot: "확인에 실패했습니다. 다시 시도해 주세요.", busy: "너무 자주 보냈습니다. 1분 후 다시 시도해 주세요.",
+            fail: "보내지 못했습니다. 잠시 후 다시 시도해 주세요.",
+            note: "보낸 내용은 이메일로 개발자에게 전달되며 서버에 저장되지 않습니다. 스팸 방지를 위해 Cloudflare Turnstile을 사용합니다.",
+            policy: "개인정보 처리방침 (English)", policyHref: "sumimasen_app_policy.html#en", ts: "ko"
+        },
+        zh: {
+            title: "联系我们", intro: "意见或问题反馈，请在这里填写。",
+            message: "内容", messageHint: "请写上设备、iOS 版本和 App 版本（设置页面底部）。",
+            name: "名字（选填）", replyTo: "回复邮箱（选填）", replyHint: "需要回复时再填写。",
+            send: "发送", sending: "发送中…", ok: "已发送，谢谢！",
+            short: "请至少写 10 个字。", long: "最多 2000 个字。", nameLong: "名字最多 60 个字。",
+            email: "请检查邮箱地址。", wait: "请等待验证完成。",
+            bot: "验证失败，请重试。", busy: "发送太频繁，请过一分钟再试。",
+            fail: "发送失败，请稍后再试。",
+            note: "内容会通过邮件发送给开发者，不会保存在服务器上。我们使用 Cloudflare Turnstile 防止垃圾信息。",
+            policy: "隐私政策（English）", policyHref: "sumimasen_app_policy.html#en", ts: "zh-cn"
+        },
+        vi: {
+            title: "Liên hệ", intro: "Góp ý hay báo lỗi, hãy gửi tại đây.",
+            message: "Nội dung", messageHint: "Hãy ghi kèm máy, phiên bản iOS và phiên bản app (cuối màn hình Cài đặt).",
+            name: "Tên (không bắt buộc)", replyTo: "Email nhận trả lời (không bắt buộc)", replyHint: "Chỉ ghi khi bạn cần trả lời.",
+            send: "Gửi", sending: "Đang gửi…", ok: "Đã gửi. Cảm ơn bạn!",
+            short: "Hãy viết ít nhất 10 ký tự.", long: "Tối đa 2000 ký tự.", nameLong: "Tên tối đa 60 ký tự.",
+            email: "Hãy kiểm tra lại địa chỉ email.", wait: "Vui lòng đợi kiểm tra xong.",
+            bot: "Kiểm tra không thành công. Hãy thử lại.", busy: "Gửi quá nhiều lần. Hãy đợi khoảng 1 phút rồi thử lại.",
+            fail: "Không gửi được. Hãy thử lại sau.",
+            note: "Nội dung được gửi qua email tới nhà phát triển và không lưu trên máy chủ. Trang dùng Cloudflare Turnstile để chặn thư rác.",
+            policy: "Chính sách quyền riêng tư (English)", policyHref: "sumimasen_app_policy.html#en", ts: "vi"
+        }
+    };
+    var HTML_LANG = { ja: "ja", en: "en", ko: "ko", zh: "zh-Hans", vi: "vi" };
+
+    var section = document.getElementById("contact");
+    var form = document.getElementById("contact-form");
+    var msg = document.getElementById("c-message");
+    var nameEl = document.getElementById("c-name");
+    var reply = document.getElementById("c-reply");
+    var counter = document.getElementById("c-counter");
+    var send = document.getElementById("c-send");
+    var status = document.getElementById("c-status");
+    var policy = document.getElementById("c-policy");
+    var lang = pickLang();
+    var widget = null;
+    var busy = false;
+
+    function pickLang() {
+        var q = new URLSearchParams(location.search).get("lang");
+        if (q && T[q]) return q;
+        var h = location.hash.slice(1);
+        if (T[h]) return h;
+        var list = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || ""];
+        for (var i = 0; i < list.length; i++) {
+            var p = String(list[i]).toLowerCase().split("-")[0];
+            if (T[p]) return p;
+        }
+        return "en";
+    }
+
+    // Characters as the server counts them (an emoji is one).
+    function count(s) { return Array.from(s).length; }
+
+    function setStatus(text, kind) {
+        status.textContent = text || "";
+        status.className = "status" + (kind ? " " + kind : "");
+    }
+
+    function updateCounter() {
+        var n = count(msg.value.trim());
+        counter.textContent = n + " / " + MAX;
+        counter.className = "counter" + (n > MAX ? " over" : "");
+    }
+
+    function apply(l) {
+        lang = l;
+        var t = T[l];
+        section.setAttribute("lang", HTML_LANG[l]);
+        var nodes = section.querySelectorAll("[data-t]");
+        for (var i = 0; i < nodes.length; i++) nodes[i].textContent = t[nodes[i].getAttribute("data-t")];
+        policy.setAttribute("href", t.policyHref);
+        var buttons = section.querySelectorAll(".langs button");
+        for (var j = 0; j < buttons.length; j++) buttons[j].setAttribute("aria-pressed", String(buttons[j].getAttribute("data-lang") === l));
+        setStatus("");
+        renderWidget();
+    }
+
+    function renderWidget() {
+        if (!window.turnstile) return;
+        if (widget !== null) { window.turnstile.remove(widget); widget = null; }
+        if (SITE_KEY.indexOf("REPLACE") === 0) { console.error("Turnstile site key is not set"); return; }
+        widget = window.turnstile.render("#c-turnstile", {
+            sitekey: SITE_KEY, action: "contact", language: T[lang].ts, size: "flexible", theme: "light"
+        });
+    }
+    window.onTurnstileLoad = renderWidget;
+
+    section.querySelector(".langs").addEventListener("click", function (e) {
+        var b = e.target.closest("button[data-lang]");
+        if (b && !busy) apply(b.getAttribute("data-lang"));
+    });
+    msg.addEventListener("input", updateCounter);
+
+    form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        if (busy) return;
+        var t = T[lang];
+        var message = msg.value.trim();
+        var name = nameEl.value.trim();
+        var replyTo = reply.value.trim();
+        if (count(message) < MIN) { setStatus(t.short, "err"); msg.focus(); return; }
+        if (count(message) > MAX) { setStatus(t.long, "err"); msg.focus(); return; }
+        if (count(name) > NAME_MAX) { setStatus(t.nameLong, "err"); nameEl.focus(); return; }
+        if (replyTo && !reply.checkValidity()) { setStatus(t.email, "err"); reply.focus(); return; }
+        var token = widget !== null && window.turnstile ? window.turnstile.getResponse(widget) : "";
+        if (!token) { setStatus(t.wait, "err"); return; }
+
+        busy = true;
+        send.disabled = true;
+        send.textContent = t.sending;
+        setStatus("");
+        fetch(ENDPOINT, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ message: message, name: name || undefined, replyTo: replyTo || undefined, lang: lang, turnstileToken: token })
+        }).then(function (res) {
+            return res.json().catch(function () { return {}; }).then(function (body) { return { status: res.status, body: body }; });
+        }).then(function (r) {
+            if (r.status === 200 && r.body.ok) {
+                form.reset();
+                updateCounter();
+                setStatus(t.ok, "ok");
+            } else if (r.status === 400 && r.body.field === "replyTo") {
+                setStatus(t.email, "err");
+            } else if (r.status === 400 && r.body.field === "name") {
+                setStatus(t.nameLong, "err");
+            } else if (r.status === 400 && r.body.field === "message") {
+                setStatus(count(message) > MAX ? t.long : t.short, "err");
+            } else if (r.status === 403 && r.body.error === "turnstile_failed") {
+                setStatus(t.bot, "err");
+            } else if (r.status === 429) {
+                setStatus(t.busy, "err");
+            } else {
+                setStatus(t.fail, "err");
+            }
+        }, function () {
+            setStatus(t.fail, "err");
+        }).then(function () {
+            // A token is good for one check only.
+            if (widget !== null && window.turnstile) window.turnstile.reset(widget);
+            busy = false;
+            send.disabled = false;
+            send.textContent = T[lang].send;
+        });
+    });
+
+    form.hidden = false;
+    apply(lang);
+    updateCounter();
+})();
+</script>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=onTurnstileLoad" async defer></script>
 </body>
 </html>
